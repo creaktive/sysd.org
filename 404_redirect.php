@@ -1,12 +1,7 @@
 <?php
 $host = htmlspecialchars(strtolower($_SERVER['SERVER_NAME']));
 $path = htmlspecialchars($_SERVER['REQUEST_URI']);
-$wayback = null;
-if (preg_match('/\b([a-z][0-9]){3,}\b/', $_SERVER['REQUEST_URI'])) {
-    header('X-Robots-Tag: noindex');
-} else {
-    $wayback = 'https://web.archive.org/web/2012/http://sysd.org' . $path;
-}
+$wayback = 'https://web.archive.org/web/2012/http://sysd.org' . $path;
 # header("HTTP/1.1 301 Moved Permanently");
 # header('Location: /');
 # exit;
@@ -17,9 +12,6 @@ if (preg_match('/\b([a-z][0-9]){3,}\b/', $_SERVER['REQUEST_URI'])) {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title><?php echo $host; ?> is off the grid</title>
-<?php if (!$wayback): ?>
-<meta name="robots" content="noindex">
-<?php endif ?>
 <style>
 :root { color-scheme: dark; --bg: #111; --fg: #d4d4d4; --dim: #8a8a8a; --prompt: #7fd17f; --link: #8ab4f8; --err: #e06c75; }
 * { box-sizing: border-box; }
@@ -50,12 +42,10 @@ body::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-in
 <h1>~/<?php echo $host; ?> $ <span>cd <?php echo $path; ?></span></h1>
 <p class="err">-bash: cd: <?php echo $path; ?>: No such file or directory</p>
 <p class="dim">This corner of the web is no longer maintained; things got lost along the way.</p>
-<?php if ($wayback): ?>
 
 <h2>~/<?php echo $host; ?> $ <span>ls /var/backups/wayback/</span></h2>
 <p><a href="<?php echo $wayback; ?>" rel="nofollow"><?php echo $wayback; ?></a></p>
 <p class="dim">If you're lucky, the Internet Archive kept a copy.</p>
-<?php endif ?>
 
 <h2>~/<?php echo $host; ?> $ <span>cd <a href="/">~</a></span></h2>
 
