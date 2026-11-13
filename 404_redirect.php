@@ -1,10 +1,7 @@
 <?php
 $host = htmlspecialchars(strtolower($_SERVER['SERVER_NAME']));
 $path = htmlspecialchars($_SERVER['REQUEST_URI']);
-$wayback = 'https://web.archive.org/web/2012/http://sysd.org' . $path;
-# header("HTTP/1.1 301 Moved Permanently");
-# header('Location: /');
-# exit;
+$wayback = "https://web.archive.org/web/2012/http://$host$path";
 ?>
 <!DOCTYPE html>
 <html lang="en">
