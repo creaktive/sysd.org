@@ -8,6 +8,7 @@ $wayback = "https://web.archive.org/web/2012/http://$host$path";
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Crect width=%2216%22 height=%2216%22 rx=%223%22 fill=%22%23111%22/%3E%3Cpath d=%22M3 4l4 4-4 4M8 12h5%22 stroke=%22%237fd17f%22 stroke-width=%222%22 fill=%22none%22/%3E%3C/svg%3E">
 <title><?php echo $host; ?> is off the grid</title>
 <style>
 :root { color-scheme: dark; --bg: #111; --fg: #d4d4d4; --dim: #8a8a8a; --prompt: #7fd17f; --link: #8ab4f8; --err: #e06c75; }
