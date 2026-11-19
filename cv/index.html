@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Crect width=%2216%22 height=%2216%22 rx=%223%22 fill=%22%23111%22/%3E%3Cpath d=%22M3 4l4 4-4 4M8 12h5%22 stroke=%22%237fd17f%22 stroke-width=%222%22 fill=%22none%22/%3E%3C/svg%3E">
+<title>Stanislaw Pusep - CV</title>
+<meta name="description" content="Stanislaw Pusep, Senior Software Engineer in Amsterdam: 25 years of APIs, data pipelines, embedded systems and signal processing.">
+<style>
+:root { color-scheme: dark; --bg: #111; --fg: #d4d4d4; --dim: #8a8a8a; --prompt: #7fd17f; --link: #8ab4f8; --hl: #e5c07b; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.6 ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; }
+main { max-width: 52rem; margin: 0 auto; padding: 3rem 1.25rem 4rem; }
+h1, h2 { font: inherit; margin: 2rem 0 .5rem; color: var(--prompt); }
+h1 { margin-top: 0; }
+h1 span, h2 span { color: var(--fg); }
+h3 { font: inherit; margin: 1.25rem 0 0; color: var(--hl); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 1.5rem; }
+h3 small { font: inherit; color: var(--dim); }
+p { margin: 0 0 .5rem; }
+.dim { color: var(--dim); }
+b { color: var(--hl); font-weight: normal; }
+ul { list-style: none; margin: 0 0 .5rem; padding: 0; }
+ul.items li { position: relative; padding-left: 2ch; }
+ul.items li::before { content: "-"; position: absolute; left: 0; color: var(--dim); }
+ul.kv li { display: grid; grid-template-columns: 14rem 1fr; gap: 0 1.5rem; padding: .1rem 0; }
+ul.kv li > :first-child { color: var(--hl); }
+a { color: var(--link); text-decoration: none; overflow-wrap: anywhere; }
+a:hover, a:focus-visible { text-decoration: underline; }
+a:focus-visible { outline: 1px solid var(--link); outline-offset: 2px; }
+.cursor { display: inline-block; width: .6em; height: 1.1em; vertical-align: text-bottom; background: var(--fg); animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+/* CRT: same tube as index.html */
+body { text-shadow: 0 0 .25em rgba(212, 212, 212, .25); }
+body::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 1;
+  background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, .2) 0 1px, transparent 1px 2px),
+              radial-gradient(ellipse at center, transparent 60%, rgba(0, 0, 0, .55) 100%); }
+@media (prefers-reduced-motion: reduce) { .cursor { animation: none; } }
+@media (max-width: 40rem) {
+  body { font-size: 14px; }
+  ul.kv li { grid-template-columns: 1fr; padding: .3rem 0; }
+}
+/* Paper: drop the tube, keep the terminal typography */
+@media print {
+  :root { color-scheme: light; --bg: #fff; --fg: #000; --dim: #555; --prompt: #2a7a2a; --link: #000; --hl: #000; }
+  @page { margin: 1.5cm; }
+  body { font-size: 9.5pt; text-shadow: none; }
+  body::after, .noprint { display: none; }
+  main { max-width: none; padding: 0; }
+  h2 { margin-top: 1.2rem; break-after: avoid; }
+  h3 { break-after: avoid; }
+  b { font-weight: bold; }
+  li { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<main>
+<h1>~/sysd.org $ <span>whoami</span></h1>
+<p><b>Stanislaw Pusep</b> · Senior Software Engineer · prototyper &amp; improver</p>
+<p class="dim">Amsterdam, Netherlands · <a href="mailto:stas@sysd.org">stas@sysd.org</a> · <a href="https://sysd.org/">sysd.org</a> · <a href="https://github.com/creaktive">github.com/creaktive</a> · <a href="https://www.linkedin.com/in/creaktive/">linkedin.com/in/creaktive</a></p>
+
+<h2>~/sysd.org $ <span>cat cv/summary.txt</span></h2>
+<p>Senior software engineer with 25 years of hands-on work, from high-traffic APIs and data pipelines to embedded systems and signal processing. At QWIC I own the B2B platform end to end: I rebuilt it and wrote nearly all of the code running in production today.</p>
+<p>Before that: nine years at Booking.com, and earlier e-commerce, data and startup work in Brazil, including co-founding a real-estate search startup. Long-time open-source maintainer (Net::Curl, rainbarf, Pianolizer).</p>
+
+<h2>~/sysd.org $ <span>ls -t cv/experience/</span></h2>
+
+<h3>Senior Software Engineer - QWIC <small>Jun 2023 - present</small></h3>
+<p class="dim">E-bike manufacturer · Amsterdam · TypeScript, Node.js, AWS Lambda, DynamoDB, S3, SST (serverless)</p>
+<ul class="items">
+<li>Own the B2B platform that handles every dealer order; wrote nearly all of the code running in production today.</li>
+<li>Cut AWS spending roughly 10x by replacing Aurora PostgreSQL, which was used only as a key/value store, with native DynamoDB and streamlining the architecture.</li>
+<li>Replaced the legacy dealer portal with a new dependency-injection architecture, retiring almost all inherited code; the platform gained features while the codebase got smaller.</li>
+<li>Built integrations with the company's CRM, ERP, payment, GPS-tracking and partner systems.</li>
+<li>Work directly with business owners (sales, returns, product data) to turn their requests into technical guidance and tickets.</li>
+<li>Built a read-only MCP server behind corporate single sign-on, giving AI assistants secure access to platform data.</li>
+<li>Added performance monitoring and telemetry, taking errors and warnings from a constant stream to almost none; continuously optimize API load times, including S3-based caching.</li>
+<li>Worked with the embedded team on automated factory validation of e-bike electronics.</li>
+<li>Handle production support for the platform.</li>
+</ul>
+
+<h3>Senior Backend Engineer - Lemonade <small>May 2022 - Apr 2023</small></h3>
+<p class="dim">Insurance fintech · Amsterdam</p>
+<ul class="items">
+<li>Scaled the external API to meet continuously growing demand.</li>
+<li>Exposed parts of the internal API with flexible, granular access control.</li>
+<li>Partially automated the translation of a legacy monolithic API into microservices.</li>
+</ul>
+
+<h3>Software Developer - Booking.com <small>Jun 2013 - Apr 2022</small></h3>
+<p class="dim">Travel platform · Amsterdam</p>
+<ul class="items">
+<li>Main developer of an in-house web framework, conceived by a colleague, for the company-wide move from own data centers to cloud microservices; by early 2022 it served about 100 million requests per hour.</li>
+<li>Data Science team: took data scientists' models into production.</li>
+<li>SEO team: migrated workloads to a Hadoop cluster.</li>
+<li>Connectivity APIs used by major hotel chains to sync reservation status: improved speed and reliability while keeping every partner compatible, working directly with their technology teams.</li>
+</ul>
+
+<h2>~/sysd.org $ <span>ls cv/experience/sao-paulo/</span></h2>
+<ul class="items">
+<li><b>Senior Software Developer, Buscapé</b> <span class="dim">(e-commerce, Sep 2011 - Mar 2013)</span>: built scraper tooling that let a smaller team run offer acquisition in 10% of the time. Replaced a Google Prediction API prototype (15% error) with a custom Naïve Bayes classifier on MapReduce (10% error).</li>
+<li><b>Co-founder &amp; CTO, Urbanico</b> <span class="dim">(real-estate search startup, side venture, Feb 2011 - Jun 2013)</span>: designed a fault-tolerant ETL pipeline for about 900K listings a day from 1,500 sellers. Hired and led the tech team and contractors, and built the prototype that raised investor funding.</li>
+<li><b>Senior Software Developer, JáCotei</b> <span class="dim">(price comparison, Sep 2010 - Sep 2011)</span>: daily product-database sync with hundreds of partners under tight resource limits; mentored junior developers.</li>
+<li><b>Technology Coordinator, Gruda Em Mim</b> <span class="dim">(contract, Jan - Sep 2010)</span>: ran critical projects, coordinated contractors and built an internal tech team.</li>
+<li><b>Software Developer, Secundum</b> <span class="dim">(Jan 2009 - Jan 2010)</span>: ad distribution system with MercadoLibre API import and embeddable banners.</li>
+</ul>
+
+<h2>~/sysd.org $ <span>ls cv/projects/</span></h2>
+<ul class="items">
+<li><a href="https://metacpan.org/pod/Net::Curl">Net::Curl</a>: maintainer of the libcurl interface for Perl since 2012; author of about 20 CPAN distributions.</li>
+<li><a href="https://github.com/creaktive/rainbarf">rainbarf</a>: CPU, RAM and battery chart for tmux; 1,200+ GitHub stars, maintained since 2013.</li>
+<li><a href="https://github.com/creaktive/pianolizer">Pianolizer</a>: audio spectrum analyzer that turns sound into piano notes, in the browser (JS/WebAssembly, <a href="/pianolizer/">live demo</a>) and on Raspberry Pi (C++); <a href="https://hackaday.com/2022/04/26/pianolizer-helps-your-musical-projects-distinguish-notes/">featured by Hackaday</a>.</li>
+<li><a href="https://github.com/creaktive/flare">FLARM-compatible transceiver</a> <span class="dim">(2015)</span>: reverse-engineered the glider anti-collision protocol from public sources; a Raspberry Pi with an nRF905 radio exchanged packets with the real units in club gliders, with SDR for signal analysis.</li>
+<li><b>Embedded ML &amp; audio</b>: a <a href="https://github.com/creaktive/doorbell-detector">doorbell detector</a> running a 1D CNN as a ~45 KB TensorFlow Lite model on a Raspberry Pi Zero; ported a <a href="https://github.com/creaktive/vq-sdft">Variable-Q Sliding DFT</a> to Raspberry Pi Pico; built a <a href="https://github.com/creaktive/yamaha-silent-piano-midi-interface">CircuitPython replacement</a> for the Yamaha Silent Piano control unit, adding USB MIDI out.</li>
+</ul>
+
+<h2>~/sysd.org $ <span>cat cv/skills.ini</span></h2>
+<ul class="kv">
+<li><span>languages</span><span>TypeScript/JavaScript (Node.js), Perl, C/C++, Python, PHP, Ruby on Rails, x86 assembly</span></li>
+<li><span>data</span><span>PostgreSQL, MySQL, Redis, Elasticsearch, MongoDB, DynamoDB, Snowflake, Hadoop/MapReduce, InfluxDB</span></li>
+<li><span>cloud &amp; ops</span><span>AWS (incl. Lambda), Docker, CI/CD, Grafana, telemetry and performance monitoring</span></li>
+<li><span>integrations</span><span>CRM and ERP systems, payment providers, headless CMS, MCP servers, single sign-on</span></li>
+<li><span>embedded &amp; dsp</span><span>Arduino, Raspberry Pi and Pico, SDR / GNU Radio, sliding DFT, TensorFlow Lite Micro</span></li>
+</ul>
+
+<h2>~/sysd.org $ <span>cat cv/education.txt</span></h2>
+<h3>Bachelor of Industrial and Product Design <small>2005 - 2009</small></h3>
+<p class="dim">São Paulo State University (UNESP), Bauru</p>
+<ul class="items">
+<li>Graduated with the highest cumulative GPA in the class.</li>
+<li>SAE AeroDesign UAV team: CAD, CFD and wind-tunnel testing; ranked #11 nationally (2007).</li>
+<li>FAPESP research grant on computer-mouse ergonomics; assistant at the Ergonomics and Interfaces Laboratory (LEI).</li>
+</ul>
+<h3>Computer Science studies (degree not completed) <small>2000 - 2004</small></h3>
+<p class="dim">University of São Paulo (USP), São Carlos</p>
+<ul class="items">
+<li>Wrote simulation software for disordered semiconductor superlattices, acknowledged in Phys. Rev. B 63, 115311 (2001) and used in later Physical Review papers.</li>
+<li>Wrote the security tool inPEct, the test case in the paper <a href="https://acsac.org/2002/abstracts/32.html">“A Toolkit for Detecting and Analyzing Malicious Software”</a> (ACSAC 2002).</li>
+<li>Ranked #46 in the Brazilian Olympiad in Informatics (2000).</li>
+</ul>
+
+<h2>~/sysd.org $ <span>locale -a</span></h2>
+<p>Portuguese (native) · Russian (native) · English (C1) · Dutch (B1)</p>
+
+<h2>~/sysd.org $ <span>cat cv/writing.txt</span></h2>
+<ul class="items">
+<li>“Web Scraping with Modern Perl” - blogs.perl.org, 2013 (<a href="https://blogs.perl.org/users/stas/2013/01/web-scraping-with-modern-perl-part-1.html">part 1</a>, <a href="https://blogs.perl.org/users/stas/2013/02/web-scraping-with-modern-perl-part-2---speed-edition.html">part 2</a>)</li>
+<li><a href="http://pragmaticperl.com/issues/07/pragmaticperl-07-%D1%81%D1%82%D0%B0%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9-%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7-%D0%BA%D0%BE%D0%B4%D0%B0.html" lang="ru">“Статический анализ кода”</a> (Static code analysis) - Pragmatic Perl, 2013; <a href="https://github.com/sppm/SPPM-Web/blob/beta/web/root/src/equinocio/2013/set/static-code-analisys.md">Portuguese version</a> for São Paulo Perl Mongers</li>
+<li><a href="https://github.com/sppm/SPPM-Web/blob/beta/web/root/src/equinocio/2011/mar/4.pod" lang="pt">“Perl e Unicode”</a> - São Paulo Perl Mongers, 2011; voted best post of the March 2011 Equinox</li>
+<li><a href="https://github.com/sppm/SPPM-Web/blob/beta/web/root/src/equinocio/2011/set/13.pod" lang="pt">“Perl Assíncrono”</a> (Asynchronous Perl) - São Paulo Perl Mongers, 2011</li>
+<li>CSV chapter in W3C Brasil’s <a href="http://www.w3c.br/pub/Materiais/PublicacoesW3C/manual_dados_abertos_desenvolvedores_web.pdf"><i>Open Data Manual for Developers</i></a>, 2011, adapted from the article <a href="https://github.com/sppm/SPPM-Web/blob/beta/web/root/src/equinocio/2011/mar/17.pod" lang="pt">“CSV: entre pipe e DBMS”</a></li>
+</ul>
+
+<h2>~/sysd.org $ <span>cat cv/interests.txt</span></h2>
+<p>Piano and synthesizers · electronics and home-automation tinkering on Raspberry Pi and Arduino</p>
+
+<h2 class="noprint">~/sysd.org $ <span>cd <a href="/">~</a></span></h2>
+<h2 class="noprint">~/sysd.org $ <span class="cursor" aria-hidden="true"></span></h2>
+</main>
+</body>
+</html>
